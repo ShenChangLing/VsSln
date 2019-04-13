@@ -24,4 +24,17 @@ namespace SCL
 			//
 		}
 	};
+
+	struct SCL_DLL Vertex_Position3f_TextureCoord : public Vertex
+	{
+		Vector3f position;
+		Vector2f textureCoord;
+
+		Vertex_Position3f_TextureCoord():
+			position(0, 0, 0),
+			textureCoord(0, 0)
+		{
+			//
+		}
+	};
 }

@@ -1,0 +1,14 @@
+prefix=./vs2017_build
+exec_prefix=${prefix}
+libdir=./vs2017_build/lib
+includedir=./vs2017_build/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 58.47.103
+Requires: 
+Requires.private: libswresample >= 3.4.100, libavutil >= 56.26.100
+Conflicts:
+Libs: -L${libdir}  -lavcodec 
+Libs.private: ole32.lib user32.lib
+Cflags: -I${includedir}

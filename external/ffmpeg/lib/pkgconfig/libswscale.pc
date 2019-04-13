@@ -1,0 +1,14 @@
+prefix=./vs2017_build
+exec_prefix=${prefix}
+libdir=./vs2017_build/lib
+includedir=./vs2017_build/include
+
+Name: libswscale
+Description: FFmpeg image rescaling library
+Version: 5.4.100
+Requires: 
+Requires.private: libavutil >= 56.26.100
+Conflicts:
+Libs: -L${libdir}  -lswscale 
+Libs.private: 
+Cflags: -I${includedir}

@@ -1,0 +1,14 @@
+prefix=./vs2017_build
+exec_prefix=${prefix}
+libdir=./vs2017_build/lib
+includedir=./vs2017_build/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 58.26.101
+Requires: 
+Requires.private: libavcodec >= 58.47.103, libswresample >= 3.4.100, libavutil >= 56.26.100
+Conflicts:
+Libs: -L${libdir}  -lavformat 
+Libs.private: secur32.lib ws2_32.lib
+Cflags: -I${includedir}

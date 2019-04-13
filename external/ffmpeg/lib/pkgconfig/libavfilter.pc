@@ -1,0 +1,14 @@
+prefix=./vs2017_build
+exec_prefix=${prefix}
+libdir=./vs2017_build/lib
+includedir=./vs2017_build/include
+
+Name: libavfilter
+Description: FFmpeg audio/video filtering library
+Version: 7.48.100
+Requires: 
+Requires.private: libswscale >= 5.4.100, libavformat >= 58.26.101, libavcodec >= 58.47.103, libswresample >= 3.4.100, libavutil >= 56.26.100
+Conflicts:
+Libs: -L${libdir}  -lavfilter 
+Libs.private: 
+Cflags: -I${includedir}

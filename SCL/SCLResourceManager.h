@@ -1,9 +1,8 @@
-#pragma once
+﻿#pragma once
 #include "SCLPrerequisites.h"
 
 namespace SCL
 {
-	
 	class SCL_DLL ResourceManager
 	{
 	public:
@@ -26,5 +25,4 @@ namespace SCL
 
 		ResourceGroupList mResourceGroups;
 	};
-
 }

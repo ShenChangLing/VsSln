@@ -1,11 +1,9 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLResourceManager.h"
 #include "SCLResource.h"
 
 namespace SCL
 {
-	
-
 	ResourceManager::ResourceManager()
 	{
 	}
@@ -15,7 +13,7 @@ namespace SCL
 	{
 	}
 
-	ResourcePtr ResourceManager::createResource(const String & name, const String & groupName)
+	ResourcePtr ResourceManager::createResource(const String& name, const String& groupName)
 	{
 		Resource* resource = _createImpl(name, groupName);
 		ResourcePtr ret(resource);
@@ -25,7 +23,7 @@ namespace SCL
 		return ret;
 	}
 
-	void ResourceManager::addImpl(ResourcePtr & ptr)
+	void ResourceManager::addImpl(ResourcePtr& ptr)
 	{
 		SCL_AUTO_LOCK_MUTEX;
 		auto iter = mResourceGroups.find(ptr->getGroupName());
@@ -38,14 +36,14 @@ namespace SCL
 		iter->second.insert(ResourceList::value_type(ptr->getName(), ptr));
 	}
 
-	void ResourceManager::removeImpl(const ResourcePtr & ptr)
+	void ResourceManager::removeImpl(const ResourcePtr& ptr)
 	{
 		SCL_AUTO_LOCK_MUTEX;
 		auto iter = mResourceGroups.find(ptr->getGroupName());
 		if (iter != mResourceGroups.end())
 		{
 			auto iter1 = iter->second.find(ptr->getName());
-			if (iter1!=iter->second.end())
+			if (iter1 != iter->second.end())
 			{
 				iter->second.erase(iter1);
 			}
@@ -55,5 +53,4 @@ namespace SCL
 			}
 		}
 	}
-
 }

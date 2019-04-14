@@ -1,4 +1,4 @@
-#include "SCLPrerequisites.h"
+ï»¿#include "SCLPrerequisites.h"
 #include "SCLCamera.h"
 #include "SCLViewport.h"
 #include "SCLScene.h"
@@ -18,9 +18,9 @@ namespace SCL
 		  mUP(0, 1, 0),
 		  mCameraRightDirection(0, 0, 0),
 		  mCameraUpDirection(0, 0, 0),
-		mIsUpdateCamera(true),
-	mCameraViewMat(1),
-	mCameraPerspective(1)
+		  mIsUpdateCamera(true),
+		  mCameraViewMat(1),
+		  mCameraPerspective(1)
 	{
 	}
 
@@ -43,7 +43,7 @@ namespace SCL
 	{
 		mLookPosition = position;
 
-		mDirection = mLookPosition - mPosition; //ÑÛ¾¦µÄÎ»ÖÃ¼õÈ¥ÑÛ¾¦Ëù¿´Î»ÖÃ£¬µÃµ½·½Ïò
+		mDirection = mLookPosition - mPosition; //çœ¼ç›çš„ä½ç½®å‡å»çœ¼ç›æ‰€çœ‹ä½ç½®ï¼Œå¾—åˆ°æ–¹å‘
 		mDirection.normalize();
 
 		mCameraRightDirection = mUP;
@@ -60,21 +60,21 @@ namespace SCL
 		setPosition(Vector3f(x, y, z));
 	}
 
-	void Camera::setPosition(const Vector3f & position)
+	void Camera::setPosition(const Vector3f& position)
 	{
 		mPosition = position;
 
 		mIsUpdateCamera = true;
 	}
 
-	const Matrix4f & Camera::getCameraView()
+	const Matrix4f& Camera::getCameraView()
 	{
 		_updateCamera();
 
 		return mCameraViewMat;
 	}
 
-	const Matrix4f & Camera::getCameraPerspective()
+	const Matrix4f& Camera::getCameraPerspective()
 	{
 		_updateCamera();
 
@@ -86,9 +86,8 @@ namespace SCL
 		if (!mIsUpdateCamera)
 			return;
 
-		//¸üĞÂ
+		//æ›´æ–°
 		mCameraViewMat = Matrix4f::lookat(mPosition, mLookPosition, mUP);
 		mCameraPerspective = Matrix4f::perspective(mFov, mAspect, mNearDist, mFarDist);
 	}
-
 }

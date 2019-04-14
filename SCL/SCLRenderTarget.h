@@ -1,4 +1,4 @@
-#pragma once
+О╩©#pragma once
 
 namespace SCL
 {
@@ -32,6 +32,6 @@ namespace SCL
 		typedef std::map<int, Viewport*> ViewportList;
 		ViewportList* mViewports;
 
-		uchar mPrioritised; //сеох╪╤ё╛д╛хон╙0
+		uchar mPrioritised; //Д╪≤Е┘┬Г╨╖О╪▄И╩≤Х╝╓Д╦╨0
 	};
 }

@@ -1,15 +1,15 @@
-#pragma once
+ï»¿#pragma once
 #include "SCLPrerequisites.h"
 
 namespace SCL
 {
-	//¶¥µã
+	//é¡¶ç‚¹
 	struct SCL_DLL Vertex
 	{
 		//
 	};
 
-	//¶¥µã
+	//é¡¶ç‚¹
 	struct SCL_DLL Vertex_Position3f_Color4f_TextureCoord : public Vertex
 	{
 		Vector3f position;

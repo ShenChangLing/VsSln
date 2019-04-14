@@ -1,4 +1,4 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLVector.h"
 #include "SCLInteriorHeader.h"
 
@@ -25,7 +25,7 @@ namespace SCL
 
 	///////////////////////////////////////////
 
-	template<typename T>
+	template <typename T>
 	Vector3<T>::Vector3(T _x, T _y, T _z)
 	{
 		x = _x;
@@ -33,18 +33,18 @@ namespace SCL
 		z = _z;
 	}
 
-	template<typename T>
+	template <typename T>
 	Vector3<T>& Vector3<T>::normalize()
 	{
 		glm::vec3 temp = glm::make_vec3(this->getDataPtr());
 		temp = glm::normalize(temp);
 
-		memcpy(getDataPtr(), glm::value_ptr(temp), sizeof(temp));
+		memcpy(getDataPtr(), value_ptr(temp), sizeof(temp));
 
 		return *this;
 	}
 
-	template<typename T>
+	template <typename T>
 	Vector3<T>& Vector3<T>::cross(const Vector3<T>& v)
 	{
 		glm::vec3 v1 = glm::make_vec3(v.getDataPtr());
@@ -52,26 +52,26 @@ namespace SCL
 
 		v1 = glm::cross(v1, v2);
 
-		memcpy(getDataPtr(), glm::value_ptr(v1), sizeof(v1));
+		memcpy(getDataPtr(), value_ptr(v1), sizeof(v1));
 
-		return  *this;
+		return *this;
 	}
 
-	template<typename T>
+	template <typename T>
 	Vector3<T> Vector3<T>::operator-(const Vector3<T>& v) const
 	{
 		Vector3<T> rv(x - v.x, y - v.y, z - v.z);
 		return rv;
 	}
 
-	template<typename T>
+	template <typename T>
 	Vector3<T> Vector3<T>::operator-(const Vector3<T>& v)
 	{
 		Vector3<T> rv(x - v.x, y - v.y, z - v.z);
 		return rv;
 	}
 
-	template<typename T>
+	template <typename T>
 	Vector3<T>& Vector3<T>::operator-=(const Vector3<T>& v)
 	{
 		x -= v.x;
@@ -80,7 +80,7 @@ namespace SCL
 		return *this;
 	}
 
-	template<typename T>
+	template <typename T>
 	Vector3<T> Vector3<T>::operator+(const Vector3<T>& v)
 	{
 		Vector3<T> rv(x + v.x, y + v.y, z + v.z);
@@ -89,8 +89,8 @@ namespace SCL
 
 	///////////////////////////////////////////
 
-	template<typename T>
-	Vector4<T>::Vector4(T _x, T _y, T _z,T _w)
+	template <typename T>
+	Vector4<T>::Vector4(T _x, T _y, T _z, T _w)
 	{
 		x = _x;
 		y = _y;

@@ -1,4 +1,4 @@
-#include "SCLPrerequisites.h"
+ï»¿#include "SCLPrerequisites.h"
 #include "SCLMesh.h"
 #include "SCLResource.h"
 
@@ -8,7 +8,7 @@
 
 namespace SCL
 {
-	void _processMaterial(const aiMaterial* material,const aiScene* scene,const aiTextureType textureType)
+	void _processMaterial(const aiMaterial* material, const aiScene* scene, const aiTextureType textureType)
 	{
 		int textureCount = material->GetTextureCount(textureType);
 		if (textureCount <= 0)
@@ -16,25 +16,23 @@ namespace SCL
 			return;
 		}
 
-		//»ñÈ¡ÎÆÀíÍ¼Æ¬
+		//è·å–çº¹ç†å›¾ç‰‡
 		for (int i = 0; i < textureCount; ++i)
 		{
-			
 			aiString texturePath;
 			if (material->GetTexture(textureType, i, &texturePath) == AI_SUCCESS)
 			{
 				OutputDebugString(texturePath.C_Str());
 			}
-			
 		}
 	}
 
 	void _processMesh(const aiMesh* mesh, const aiScene* scene)
 	{
-		//¶¥µã
+		//é¡¶ç‚¹
 		for (int i = 0; i < mesh->mNumVertices; ++i)
 		{
-			//Î»ÖÃ
+			//ä½ç½®
 			if (mesh->HasPositions())
 			{
 				Vector3f pos;
@@ -43,7 +41,7 @@ namespace SCL
 				pos.y = mesh->mVertices[i].z;
 			}
 
-			//·¨Ïß
+			//æ³•çº¿
 			if (mesh->HasNormals())
 			{
 				Vector3f normal;
@@ -51,7 +49,7 @@ namespace SCL
 				normal.y = mesh->mNormals[i].y;
 				normal.z = mesh->mNormals[i].z;
 			}
-			//ÎÆÀí
+			//çº¹ç†
 			for (int j = 0; j < AI_MAX_NUMBER_OF_TEXTURECOORDS; ++j)
 			{
 				if (mesh->HasTextureCoords(j))
@@ -63,7 +61,7 @@ namespace SCL
 				else
 					break;
 			}
-			//ÑÕÉ«
+			//é¢œè‰²
 			for (int j = 0; j < AI_MAX_NUMBER_OF_COLOR_SETS; ++j)
 			{
 				if (mesh->HasVertexColors(j))
@@ -77,7 +75,7 @@ namespace SCL
 					break;
 			}
 		}
-		//Ë÷Òı
+		//ç´¢å¼•
 		for (int i = 0; i < mesh->mNumFaces; ++i)
 		{
 			const aiFace face = mesh->mFaces[i];
@@ -87,7 +85,7 @@ namespace SCL
 			}
 		}
 
-		//²ÄÖÊ
+		//æè´¨
 		if (scene->HasMaterials())
 		{
 			if (mesh->mMaterialIndex >= 0)
@@ -101,7 +99,7 @@ namespace SCL
 
 	void _processNode(const aiNode* node, const aiScene* scene)
 	{
-		//´¦Àíµ±Ç°½ÚµãµÄÊı¾İ
+		//å¤„ç†å½“å‰èŠ‚ç‚¹çš„æ•°æ®
 		for (int i = 0; i < node->mNumMeshes; ++i)
 		{
 			const aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];

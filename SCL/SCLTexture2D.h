@@ -1,10 +1,9 @@
-#pragma once
+﻿#pragma once
 #include "SCLPrerequisites.h"
 
 
 namespace SCL
 {
-
 	class Texture2D
 	{
 	public:
@@ -14,7 +13,6 @@ namespace SCL
 		void bind();
 
 	private:
-		unsigned int																										mTextureID;
+		unsigned int mTextureID;
 	};
 }
-

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 namespace SCL
 {
@@ -8,8 +8,11 @@ namespace SCL
 		Scene();
 		~Scene();
 
-		/// @brief ´´½¨Ïà»ú
+		/// @brief åˆ›å»ºç›¸æœº
 		Camera* createCamera(String name);
+
+		//åˆ›å»ºåœºæ™¯èŠ‚ç‚¹
+
 
 	public:
 		void renderScene(Camera* camera, Viewport* viewport);

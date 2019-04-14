@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "SCLPrerequisites.h"
 
 namespace SCL
@@ -26,8 +26,8 @@ namespace SCL
 		const T* getDataPtr() const { return &x; }
 		T* getDataPtr() { return &x; }
 
-		Vector3<T>& normalize();//Ò»ÖÂ»¯,±ê×¼»¯
-		Vector3<T>& cross(const Vector3<T>& v);//¡Á³Ë
+		Vector3<T>& normalize(); //ä¸€è‡´åŒ–,æ ‡å‡†åŒ–
+		Vector3<T>& cross(const Vector3<T>& v); //Ã—ä¹˜
 
 		Vector3<T> operator-(const Vector3<T>& v) const;
 		Vector3<T> operator-(const Vector3<T>& v);
@@ -44,6 +44,4 @@ namespace SCL
 
 		T x, y, z, w;
 	};
-
-
 }

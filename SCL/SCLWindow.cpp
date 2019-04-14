@@ -1,11 +1,10 @@
-#include "SCLPrerequisites.h"
+Ôªø#include "SCLPrerequisites.h"
 #include "SCLWindow.h"
 
 #include "SCLInteriorHeader.h"
 
 namespace SCL
 {
-
 	void windowcloseCallback(GLFWwindow* window)
 	{
 	}
@@ -40,7 +39,7 @@ namespace SCL
 		glfwSetWindowCloseCallback(mGLFWWindow, windowcloseCallback);
 		glfwSetWindowSizeCallback(mGLFWWindow, windowsizeCallback);
 
-		glfwSwapInterval(1);//¥π÷±Õ¨≤Ω
+		glfwSwapInterval(1); //ÂûÇÁõ¥ÂêåÊ≠•
 	}
 
 
@@ -74,5 +73,4 @@ namespace SCL
 	{
 		glfwMakeContextCurrent(mGLFWWindow);
 	}
-
 }

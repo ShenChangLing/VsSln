@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "SCLRenderTarget.h"
 
 
@@ -10,7 +10,7 @@ namespace SCL
 		Window(const char* name, int x, int y, int w, int h, bool fullscreen);
 		virtual ~Window();
 
-		//´°¿ÚÊÇ·ñ¹Ø±Õ
+		//çª—å£æ˜¯å¦å…³é—­
 		bool isClosed();
 
 		void swapBuffers() override;
@@ -19,7 +19,7 @@ namespace SCL
 		void unbindCurrentContext() override;
 
 	public:
-		//Í¨Öª´°¿Ú´óĞ¡¸Ä±ä
+		//é€šçŸ¥çª—å£å¤§å°æ”¹å˜
 		void _notifyWindowSizeChange();
 	private:
 		GLFWwindow* mGLFWWindow;

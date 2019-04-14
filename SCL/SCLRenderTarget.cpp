@@ -1,11 +1,10 @@
-#include "SCLPrerequisites.h"
+ï»¿#include "SCLPrerequisites.h"
 #include "SCLRenderTarget.h"
 #include "SCLViewport.h"
 #include <glfw3.h>
 
 namespace SCL
 {
-
 	RenderTarget::RenderTarget()
 	{
 		mName = "null";
@@ -20,7 +19,7 @@ namespace SCL
 
 	RenderTarget::~RenderTarget()
 	{
-		for (auto i :*mViewports)
+		for (auto i : *mViewports)
 		{
 			delete (i.second);
 		}
@@ -28,11 +27,11 @@ namespace SCL
 		delete mViewports;
 	}
 
-	Viewport * RenderTarget::addViewport(Camera* camera ,int z, float left, float top, float width, float height)
+	Viewport* RenderTarget::addViewport(Camera* camera, int z, float left, float top, float width, float height)
 	{
 		if (mViewports->find(z) != mViewports->end())
 		{
-			return nullptr;//²»ÄÜÍ¬Ê±Ôö¼ÓÏàÍ¬µÄZÐòÁÐ
+			return nullptr; //ä¸èƒ½åŒæ—¶å¢žåŠ ç›¸åŒçš„Zåºåˆ—
 		}
 
 		Viewport* viewport = new Viewport(camera, this, left, top, width, height);
@@ -44,13 +43,12 @@ namespace SCL
 
 	void RenderTarget::update()
 	{
-		//¿ªÊ¼¸üÐÂËùÓÐµÄÊÓ¿Ú
-		for (auto i:*mViewports)
+		//å¼€å§‹æ›´æ–°æ‰€æœ‰çš„è§†å£
+		for (auto i : *mViewports)
 		{
 			(i.second)->update();
 		}
 
 		swapBuffers();
 	}
-
 }

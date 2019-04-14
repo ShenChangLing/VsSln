@@ -1,9 +1,8 @@
-#pragma once
+﻿#pragma once
 #include "SCLPrerequisites.h"
 
 namespace SCL
 {
-
 	class ShaderProgram
 	{
 	public:
@@ -13,12 +12,11 @@ namespace SCL
 
 		void init(const char* vssource, const char* fssource);
 		int getUniformLocation(const char* name);
-		void setUniformMatrix4fv(int location,const Matrix4f& mat);
+		void setUniformMatrix4fv(int location, const Matrix4f& mat);
 
 		void use();
 
 	private:
-		uint																				mProgram;
+		uint mProgram;
 	};
-
 }

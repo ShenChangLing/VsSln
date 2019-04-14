@@ -1,9 +1,8 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLEntity.h"
 
 namespace SCL
 {
-	
 	Entity::Entity()
 	{
 	}
@@ -12,5 +11,4 @@ namespace SCL
 	Entity::~Entity()
 	{
 	}
-
 }

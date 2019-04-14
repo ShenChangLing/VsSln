@@ -1,16 +1,15 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLRendererStateCache.h"
 #include "SCLInteriorHeader.h"
 #include "SCLColorValue.h"
 
 namespace SCL
 {
-
 	RendererStateCache::RendererStateCache()
 	{
 		memset(mViewport, 0, sizeof(int) * 4);
 		memset(mClearColorRGBA, 0, sizeof(float) * 4);
-		mClearColorRGBA[0] = -10.0f;//��ֹBUG
+		mClearColorRGBA[0] = -10.0f; //防止BUG
 	}
 
 
@@ -32,7 +31,7 @@ namespace SCL
 		}
 	}
 
-	void RendererStateCache::setClearColor(const ColorValue & color)
+	void RendererStateCache::setClearColor(const ColorValue& color)
 	{
 		if (mClearColorRGBA[0] != color.r ||
 			mClearColorRGBA[1] != color.g ||
@@ -47,5 +46,4 @@ namespace SCL
 			glClearColor(color.r, color.g, color.g, color.a);
 		}
 	}
-
 }

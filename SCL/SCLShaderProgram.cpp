@@ -1,13 +1,12 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLShaderProgram.h"
 
 #include "SCLInteriorHeader.h"
 
 namespace SCL
 {
-
 	ShaderProgram::ShaderProgram(const char* vsfilepath, const char* fsfilepath)
-		:ShaderProgram()
+		: ShaderProgram()
 	{
 		std::ifstream ivs, ifs;
 		ivs.open(vsfilepath);
@@ -16,7 +15,7 @@ namespace SCL
 		ifs.open(fsfilepath);
 		assert(ifs.is_open());
 
-		std::stringstream ivsstream,ifsstream;
+		std::stringstream ivsstream, ifsstream;
 
 		ivsstream << ivs.rdbuf();
 		ifsstream << ifs.rdbuf();
@@ -42,7 +41,7 @@ namespace SCL
 		}
 	}
 
-	void ShaderProgram::init(const char * vssource, const char * fssource)
+	void ShaderProgram::init(const char* vssource, const char* fssource)
 	{
 		GLuint vs, fs;
 		vs = glCreateShader(GL_VERTEX_SHADER);
@@ -100,7 +99,7 @@ namespace SCL
 		return glGetUniformLocation(mProgram, name);
 	}
 
-	void ShaderProgram::setUniformMatrix4fv(int location,const Matrix4f& mat)
+	void ShaderProgram::setUniformMatrix4fv(int location, const Matrix4f& mat)
 	{
 		glUniformMatrix4fv(location, 1, GL_FALSE, mat.getDataPtr());
 	}
@@ -110,5 +109,4 @@ namespace SCL
 		assert(mProgram);
 		glUseProgram(mProgram);
 	}
-
 }

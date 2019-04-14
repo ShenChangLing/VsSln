@@ -1,4 +1,4 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLViewport.h"
 #include "SCLCamera.h"
 #include "SCLRenderTarget.h"
@@ -30,7 +30,7 @@ namespace SCL
 	{
 	}
 
-	void Viewport::getActualDimensions(int & left, int & top, int & width, int & height) const
+	void Viewport::getActualDimensions(int& left, int& top, int& width, int& height) const
 	{
 		left = mActualLeft;
 		top = mActualTop;
@@ -50,5 +50,4 @@ namespace SCL
 		mActualWidth = static_cast<int>(mRelativeWidth * width);
 		mActualHeight = static_cast<int>(mRelativeHeight * height);
 	}
-
 }

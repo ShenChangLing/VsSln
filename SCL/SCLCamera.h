@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "SCLPrerequisites.h"
 
 
@@ -25,24 +25,24 @@ namespace SCL
 		const Matrix4f& getCameraPerspective();
 
 	private:
-		void _updateCamera();//ÄÚ²¿¸üĞÂÉãÏñ»ú
+		void _updateCamera(); //å†…éƒ¨æ›´æ–°æ‘„åƒæœº
 	private:
 		String mName;
 		Scene* mScene;
 
-		float mFov;//½Ç¶ÈÄ¬ÈÏ45
+		float mFov; //è§’åº¦é»˜è®¤45
 		float mFarDist;
 		float mNearDist;
 
-		float mAspect;//¿í¸ß±ÈÀı
+		float mAspect; //å®½é«˜æ¯”ä¾‹
 
-		Vector3f mPosition;//Î»ÖÃ
-		Vector3f mLookPosition;//Ëù¿´Î»ÖÃ
-		Vector3f mDirection;//·½Ïò
-		Vector3f mUP;//ÉÏ·½Ïò
+		Vector3f mPosition; //ä½ç½®
+		Vector3f mLookPosition; //æ‰€çœ‹ä½ç½®
+		Vector3f mDirection; //æ–¹å‘
+		Vector3f mUP; //ä¸Šæ–¹å‘
 
-		Vector3f mCameraRightDirection;//ÓÒ·½Ïò
-		Vector3f mCameraUpDirection;//ÉãÏñ»úµÄÉÏ·½Ïò
+		Vector3f mCameraRightDirection; //å³æ–¹å‘
+		Vector3f mCameraUpDirection; //æ‘„åƒæœºçš„ä¸Šæ–¹å‘
 
 	private:
 		bool mIsUpdateCamera;

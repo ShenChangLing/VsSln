@@ -1,11 +1,11 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLMeshManager.h"
 
-template<> SCL::MeshManager* SCL::Singleton<SCL::MeshManager>::mSingleton = nullptr;
+template <>
+SCL::MeshManager* SCL::Singleton<SCL::MeshManager>::mSingleton = nullptr;
 
 namespace SCL
 {
-		
 	MeshManager::MeshManager()
 	{
 	}
@@ -15,9 +15,8 @@ namespace SCL
 	{
 	}
 
-	Resource * MeshManager::_createImpl(const String & name, const String & groupName)
+	Resource* MeshManager::_createImpl(const String& name, const String& groupName)
 	{
 		return nullptr;
 	}
-
 }

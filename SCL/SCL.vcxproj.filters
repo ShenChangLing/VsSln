@@ -87,6 +87,9 @@
     <ClInclude Include="SCLVertex.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SCLSceneNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SCLPrerequisites.cpp">
@@ -147,6 +150,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SCLMesh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCLSceneNode.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

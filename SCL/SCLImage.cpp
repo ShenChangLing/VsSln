@@ -1,11 +1,10 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLImage.h"
 
 #include "SCLInteriorHeader.h"
 
 namespace SCL
 {
-
 	Image::Image()
 	{
 		mData = nullptr;
@@ -53,5 +52,4 @@ namespace SCL
 
 		FreeImage_Unload(fib);
 	}
-
 }

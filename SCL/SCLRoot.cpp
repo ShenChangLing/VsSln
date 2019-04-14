@@ -1,4 +1,4 @@
-#include "SCLPrerequisites.h"
+ï»¿#include "SCLPrerequisites.h"
 #include "SCLRoot.h"
 #include "SCLWindow.h"
 #include "SCLShaderProgram.h"
@@ -102,7 +102,6 @@ namespace SCL
 		}
 
 		glfwDestroyWindow(window);
-
 	}
 
 	void testFreetype2()
@@ -115,12 +114,12 @@ namespace SCL
 
 		FT_Set_Pixel_Sizes(ft_face, 0, 12);
 
-		 FT_UInt index = FT_Get_Char_Index(ft_face, 'a');
+		FT_UInt index = FT_Get_Char_Index(ft_face, 'a');
 
-		 FT_Load_Glyph(ft_face, index, FT_LOAD_DEFAULT);
-		 FT_Render_Glyph(ft_face->glyph, FT_RENDER_MODE_NORMAL);
+		FT_Load_Glyph(ft_face, index, FT_LOAD_DEFAULT);
+		FT_Render_Glyph(ft_face->glyph, FT_RENDER_MODE_NORMAL);
 
-		 FT_Done_FreeType(ft_lib);
+		FT_Done_FreeType(ft_lib);
 	}
 
 	Root::Root()
@@ -167,7 +166,7 @@ namespace SCL
 		window = new Window(name, x, y, width, height, fullscreen);
 		mWindows->push_back(window);
 
-		//°ó¶¨µ½äÖÈ¾Ä¿±ê
+		//ç»‘å®šåˆ°æ¸²æŸ“ç›®æ ‡
 		mRenderer->attachRenderTarget(*window);
 
 		return window;
@@ -245,5 +244,4 @@ namespace SCL
 		}
 		mScenes->clear();
 	}
-
 }

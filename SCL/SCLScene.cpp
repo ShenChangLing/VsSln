@@ -1,4 +1,4 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLScene.h"
 #include "SCLCamera.h"
 #include "SCLViewport.h"
@@ -44,7 +44,6 @@ namespace SCL
 		mRenderer->setViewport(mCurrentViewport);
 
 		mRenderer->clear(Renderer::CBB_Color, mCurrentViewport->getBackgroundColorValue());
-
 	}
 
 	void Scene::_destroyAllCameras()

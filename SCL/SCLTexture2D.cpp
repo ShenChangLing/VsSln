@@ -1,4 +1,4 @@
-#include "SCLPrerequisites.h"
+﻿#include "SCLPrerequisites.h"
 #include "SCLTexture2D.h"
 
 #include "SCLImage.h"
@@ -6,7 +6,6 @@
 
 namespace SCL
 {
-
 	Texture2D::Texture2D(Image* image)
 	{
 		glGenTextures(1, &mTextureID);
@@ -17,7 +16,8 @@ namespace SCL
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image->getWidth(), image->getWidth(), 0, GL_BGR, GL_UNSIGNED_BYTE, image->getData());
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image->getWidth(), image->getWidth(), 0, GL_BGR, GL_UNSIGNED_BYTE,
+		             image->getData());
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 
@@ -31,5 +31,4 @@ namespace SCL
 	{
 		glBindTexture(GL_TEXTURE_2D, mTextureID);
 	}
-
 }

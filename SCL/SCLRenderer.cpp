@@ -1,4 +1,4 @@
-#include "SCLPrerequisites.h"
+ï»¿#include "SCLPrerequisites.h"
 #include "SCLRenderer.h"
 #include "SCLRenderTarget.h"
 #include "SCLRendererStateCache.h"
@@ -78,7 +78,7 @@ namespace SCL
 		}
 		else if (viewport != mCurrentViewport)
 		{
-			//µ±Ç°µÄÊÓ¿ÚºÍÒÑ¾­¼¤»îµÄÊÓ¿ÚÊÇÍ¬Ò»¸ö¾Í²»´¦Àí
+			//å½“å‰çš„è§†å£å’Œå·²ç»æ¿€æ´»çš„è§†å£æ˜¯åŒä¸€ä¸ªå°±ä¸å¤„ç†
 			auto rt = viewport->getRenderTarget();
 
 			setRenderTarget(rt);
@@ -99,21 +99,21 @@ namespace SCL
 
 		if (rt == nullptr)
 		{
-			mCurrentRenderTarget->unbindCurrentContext(); //½â°óµ±Ç°»·¾³
+			mCurrentRenderTarget->unbindCurrentContext(); //è§£ç»‘å½“å‰ç¯å¢ƒ
 			mCurrentRenderTarget = rt;
 			return;
 		}
 
 		mCurrentRenderTarget = rt;
 
-		//°ó¶¨µ½µ±Ç°»·¾³ÖĞ
+		//ç»‘å®šåˆ°å½“å‰ç¯å¢ƒä¸­
 		mCurrentRenderTarget->bindCurrentContext();
 
-		//ÕÒµ½Ä¿±êµÄ¶ÔÓ¦äÖÈ¾×´Ì¬»º´æ
+		//æ‰¾åˆ°ç›®æ ‡çš„å¯¹åº”æ¸²æŸ“çŠ¶æ€ç¼“å­˜
 		auto iter = mRenderStateCaches.find(rt);
 		if (iter == mRenderStateCaches.end())
 		{
-			//Ã»ÓĞÕÒµ½¾Í´ÓĞÂÉú²úÒ»¸ö
+			//æ²¡æœ‰æ‰¾åˆ°å°±ä»æ–°ç”Ÿäº§ä¸€ä¸ª
 			mCurrentRenderStateCache = new RendererStateCache();
 			mRenderStateCaches.insert(RendererStateCaches::value_type(mCurrentRenderTarget, mCurrentRenderStateCache));
 		}
@@ -123,7 +123,7 @@ namespace SCL
 		}
 	}
 
-	void Renderer::clear(CLEAR_BUFFER_BIT bit, const ColorValue & color)
+	void Renderer::clear(CLEAR_BUFFER_BIT bit, const ColorValue& color)
 	{
 		uint clearBit = 0;
 		if (bit & CBB_Color)
@@ -134,5 +134,4 @@ namespace SCL
 
 		glClear(clearBit);
 	}
-
 }

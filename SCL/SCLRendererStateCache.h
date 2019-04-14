@@ -1,9 +1,9 @@
-#pragma once
+ï»¿#pragma once
 #include "SCLPrerequisites.h"
 
 namespace SCL
 {
-	//äÖÈ¾Æ÷µÄ×´Ì¬»º´æ
+	//æ¸²æŸ“å™¨çš„çŠ¶æ€ç¼“å­˜
 	class RendererStateCache
 	{
 	public:

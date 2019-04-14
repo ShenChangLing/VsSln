@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "SCLPrerequisites.h"
 #include "SCLColorValue.h"
 
@@ -16,24 +16,24 @@ namespace SCL
 
 		RenderTarget* getRenderTarget() { return mRenderTarget; }
 
-		void getActualDimensions(int &left, int& top, int& width, int& height) const;
+		void getActualDimensions(int& left, int& top, int& width, int& height) const;
 
 		const ColorValue& getBackgroundColorValue() const { return mBackgroundColorValue; }
 
 	protected:
-		void _updateDimensions();//¸üĞÂÕæÊµµÄÊÓ¿ÚÏñËØ
+		void _updateDimensions(); //æ›´æ–°çœŸå®çš„è§†å£åƒç´ 
 
 	protected:
 		Camera* mCamera;
 		RenderTarget* mRenderTarget;
 
-		//ÊÓ¿ÚµÄÏà¶Ô×ó±ß,ÉÏ±ß£¬¿í¶È£¬¸ß¶È·¶Î§£¨0-1£©
+		//è§†å£çš„ç›¸å¯¹å·¦è¾¹,ä¸Šè¾¹ï¼Œå®½åº¦ï¼Œé«˜åº¦èŒƒå›´ï¼ˆ0-1ï¼‰
 		float mRelativeLeft;
 		float mRelativeTop;
 		float mRelativeWidth;
 		float mRelativeHeight;
 
-		//ÊÓ¿ÚµÄÕæÊµ×ó±ß£¬ÉÏ±ß£¬¿í¶È£¬¸ß¶È(ÆÁÄ»ÏñËØ)
+		//è§†å£çš„çœŸå®å·¦è¾¹ï¼Œä¸Šè¾¹ï¼Œå®½åº¦ï¼Œé«˜åº¦(å±å¹•åƒç´ )
 		int mActualLeft;
 		int mActualTop;
 		int mActualWidth;

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #pragma warning(push)
 #pragma warning(disable:4819)
 
@@ -13,8 +13,7 @@
 #include FT_FREETYPE_H
 
 
-extern "C"
-{
+extern "C" {
 #include <libavformat/avformat.h>
 #include <libavcodec/avcodec.h>
 #include <libavdevice/avdevice.h>

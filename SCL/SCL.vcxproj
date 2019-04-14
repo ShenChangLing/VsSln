@@ -92,7 +92,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\external\assimp\include;..\external\openal\include;..\external\ffmpeg\include;..\external\freetype2\include;..\external\stb;..\external\glm;..\external\FreeImage\include;..\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>SCLPrerequisites.h</PrecompiledHeaderFile>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -128,7 +128,7 @@
       <AdditionalIncludeDirectories>..\external\assimp\include;..\external\openal\include;..\external\ffmpeg\include;..\external\freetype2\include;..\external\stb;..\external\glm;..\external\FreeImage\include;..\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>SCLPrerequisites.h</PrecompiledHeaderFile>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -175,6 +175,7 @@
     <ClInclude Include="SCLResourceManager.h" />
     <ClInclude Include="SCLRoot.h" />
     <ClInclude Include="SCLScene.h" />
+    <ClInclude Include="SCLSceneNode.h" />
     <ClInclude Include="SCLShaderProgram.h" />
     <ClInclude Include="SCLSingleton.h" />
     <ClInclude Include="SCLTexture2D.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="SCLResourceManager.cpp" />
     <ClCompile Include="SCLRoot.cpp" />
     <ClCompile Include="SCLScene.cpp" />
+    <ClCompile Include="SCLSceneNode.cpp" />
     <ClCompile Include="SCLShaderProgram.cpp" />
     <ClCompile Include="SCLTexture2D.cpp" />
     <ClCompile Include="SCLVector.cpp" />

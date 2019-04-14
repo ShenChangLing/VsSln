@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "SCLPrerequisites.h"
 
 namespace SCL
@@ -12,25 +12,26 @@ namespace SCL
 			CBB_Depth = 1 << 1,
 			CBB_Stencil = 1 << 2,
 		};
+
 	public:
 		Renderer();
 		~Renderer();
 
-		void attachRenderTarget(RenderTarget& rt); //°ó¶¨äÖÈ¾
-		RenderTarget* detachRenderTarget(const String& name); //·ÖÀëäÖÈ¾Ä¿±ê
+		void attachRenderTarget(RenderTarget& rt); //ç»‘å®šæ¸²æŸ“
+		RenderTarget* detachRenderTarget(const String& name); //åˆ†ç¦»æ¸²æŸ“ç›®æ ‡
 
 		void updateAllRenderTargets();
 
-		void setViewport(Viewport* viewport); //ÉèÖÃµ±Ç°ÊÓ¿Ú
+		void setViewport(Viewport* viewport); //è®¾ç½®å½“å‰è§†å£
 		void setRenderTarget(RenderTarget* rt);
 
-		void clear(CLEAR_BUFFER_BIT bit,const ColorValue& color);
+		void clear(CLEAR_BUFFER_BIT bit, const ColorValue& color);
 
 	public:
 		typedef std::multimap<uchar, RenderTarget*> PrioritisedRenderTarget;
 		typedef std::unordered_map<RenderTarget*, RendererStateCache*> RendererStateCaches;
 	private:
-		PrioritisedRenderTarget mPrioritisedRenderTargets; //ÓÅÏÈ¼¶µÄ´°¿Ú£¬ÓÅÏÈ¼¶¸ßµÄÏÈ»æÖÆ
+		PrioritisedRenderTarget mPrioritisedRenderTargets; //ä¼˜å…ˆçº§çš„çª—å£ï¼Œä¼˜å…ˆçº§é«˜çš„å…ˆç»˜åˆ¶
 
 		RendererStateCaches mRenderStateCaches;
 		RendererStateCache* mCurrentRenderStateCache;

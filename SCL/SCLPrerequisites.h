@@ -25,7 +25,6 @@
 #include <windows.h>
 
 
-
 // 在此处引用程序需要的其他标头
 #include <cstdio>
 #include <iostream>
@@ -86,6 +85,10 @@ namespace SCL
 	class MeshManager;
 	class Entity;
 
+	class SceneNode;
+
+	struct Vertex;
+
 	typedef std::string String;
 	typedef unsigned int uint;
 	typedef unsigned char uchar;
@@ -98,10 +101,7 @@ namespace SCL
 
 	typedef std::shared_ptr<Mesh> MeshPtr;
 	typedef std::shared_ptr<Resource> ResourcePtr;
-
 }
 
 
 struct GLFWwindow;
-
-

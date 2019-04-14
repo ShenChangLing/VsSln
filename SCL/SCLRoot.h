@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "SCLPrerequisites.h"
 #include "SCLSingleton.h"
 
@@ -20,7 +20,7 @@ namespace SCL
 		Renderer* getRenderer() { return mRenderer; }
 
 		void run();
-		void renderOneFrame(); //»æÖÆÒ»Ö¡
+		void renderOneFrame(); //ç»˜åˆ¶ä¸€å¸§
 
 	protected:
 		void _clearCloseWindows();
@@ -31,7 +31,7 @@ namespace SCL
 		typedef std::list<Scene*> SceneList;
 		WindowList* mWindows;
 
-		Renderer* mRenderer; //äÖÈ¾Æ÷
+		Renderer* mRenderer; //æ¸²æŸ“å™¨
 
 		SceneList* mScenes;
 	};

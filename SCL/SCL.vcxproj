@@ -167,7 +167,9 @@
     <ClInclude Include="SCLMesh.h" />
     <ClInclude Include="SCLMatrix.h" />
     <ClInclude Include="SCLMeshManager.h" />
+    <ClInclude Include="SCLMovableObject.h" />
     <ClInclude Include="SCLPrerequisites.h" />
+    <ClInclude Include="SCLQuaternion.h" />
     <ClInclude Include="SCLRenderer.h" />
     <ClInclude Include="SCLRendererStateCache.h" />
     <ClInclude Include="SCLRenderTarget.h" />
@@ -193,12 +195,14 @@
     <ClCompile Include="SCLMesh.cpp" />
     <ClCompile Include="SCLMatrix.cpp" />
     <ClCompile Include="SCLMeshManager.cpp" />
+    <ClCompile Include="SCLMovableObject.cpp" />
     <ClCompile Include="SCLPrerequisites.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SCLQuaternion.cpp" />
     <ClCompile Include="SCLRenderer.cpp" />
     <ClCompile Include="SCLRendererStateCache.cpp" />
     <ClCompile Include="SCLRenderTarget.cpp" />

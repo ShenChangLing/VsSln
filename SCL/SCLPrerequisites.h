@@ -43,6 +43,7 @@
 
 #include "SCLVector.h"
 #include "SCLMatrix.h"
+#include "SCLQuaternion.h"
 
 //多线程部分
 #include <thread>
@@ -86,8 +87,10 @@ namespace SCL
 	class Entity;
 
 	class SceneNode;
+	class MovableObject;
 
 	struct Vertex;
+	class Quaternion;
 
 	typedef std::string String;
 	typedef unsigned int uint;
@@ -101,6 +104,8 @@ namespace SCL
 
 	typedef std::shared_ptr<Mesh> MeshPtr;
 	typedef std::shared_ptr<Resource> ResourcePtr;
+
+	typedef std::list<SceneNode*> SceneNodeList;
 }
 
 

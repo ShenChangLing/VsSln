@@ -5,6 +5,7 @@
 #include "SCLRenderer.h"
 #include "SCLRoot.h"
 #include "SCLInteriorHeader.h"
+#include "SCLSceneNode.h"
 
 namespace SCL
 {
@@ -14,11 +15,17 @@ namespace SCL
 		mRenderer = Root::getSingletonPtr()->getRenderer();
 
 		mCameras.clear();
+		mSceneNodes.clear();
+
+		mSceneNodeRoot = this->createSceneNode();
 	}
 
 	Scene::~Scene()
 	{
 		_destroyAllCameras();
+
+		this->destroySceneNode(mSceneNodeRoot);
+		mSceneNodeRoot = nullptr;
 
 		mCurrentViewport = nullptr;
 		mRenderer = nullptr;
@@ -35,6 +42,27 @@ namespace SCL
 		Camera* camera = new Camera(name, this);
 		mCameras.insert(CameraList::value_type(name, camera));
 		return camera;
+	}
+
+	SceneNode* Scene::createSceneNode()
+	{
+		SceneNode* sn = new SceneNode(this);
+
+		{
+			SCL_AUTO_LOCK_MUTEX;
+			mSceneNodes.push_back(sn);
+		}
+
+		return sn;
+	}
+
+	void Scene::destroySceneNode(SceneNode* scene_node)
+	{
+		{
+			SCL_AUTO_LOCK_MUTEX;
+			mSceneNodes.remove(scene_node);
+		}
+		delete scene_node;
 	}
 
 	void Scene::renderScene(Camera* camera, Viewport* viewport)

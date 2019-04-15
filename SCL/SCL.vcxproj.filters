@@ -90,6 +90,12 @@
     <ClInclude Include="SCLSceneNode.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SCLMovableObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SCLQuaternion.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SCLPrerequisites.cpp">
@@ -153,6 +159,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SCLSceneNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCLMovableObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCLQuaternion.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

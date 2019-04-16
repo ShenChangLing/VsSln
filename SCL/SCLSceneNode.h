@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "SCLPrerequisites.h"
+#include <deque>
 
 namespace SCL
 {
@@ -23,6 +24,9 @@ namespace SCL
 		void setOrientation(const Quaternion& orientation);
 		const Quaternion& getOrientation() const { return mOrientation; }
 
+		void setScale(const Vector3f& scale);
+		const Vector3f& getScale() const { return mScale; }
+
 		const Quaternion& getDerivedOrientation() const { return mDerivedOrientation; } //获取推到的方向
 		const Vector3f& getDerivedScale() const { return mDerivedScale; }
 		const Vector3f& getDerivedPosition() const { return mDerivedPosition; }
@@ -31,6 +35,10 @@ namespace SCL
 		void removeChild(SceneNode* scene_node);
 		void removeAllChild();
 		uint getChildCount();
+
+		void attachObject(MovableObject* obj);//绑定渲染对象到当前节点
+		void detachObject(MovableObject* obj);//分离
+		void detachAllObjects(void);//分离所有对象
 
 	private:
 		//需要更新
@@ -50,6 +58,10 @@ namespace SCL
 
 		SceneNode* mParent; //父节点
 		SceneNodeList mChilds; //子节点
+
+	protected:
+		typedef std::deque<MovableObject*> MovableObjectList;
+		MovableObjectList mMovableObjects;//绑定在当前节点的可移动渲染对象
 
 	private:
 		bool mNeedParentUpdate; //需要更新父节点

@@ -37,7 +37,6 @@ namespace SCL
 		return Quaternion(x * s, y * s, z * s, w * s);
 	}
 
-	//template<typename T>
 	Vector3<float> Quaternion::operator*(const Vector3<float>& vector3) const
 	{
 		glm::vec3 a = glm::make_vec3(vector3.getDataPtr());

@@ -17,12 +17,14 @@ namespace SCL
 	{
 		mChilds.clear();
 
+		mMovableObjects.clear();
 		_needupdate();
 	}
 
 
 	SceneNode::~SceneNode()
 	{
+		detachAllObjects();
 		removeAllChild();
 	}
 
@@ -35,6 +37,13 @@ namespace SCL
 	{
 		mOrientation = orientation;
 		mOrientation.normalise();
+
+		_needupdate();
+	}
+
+	void SceneNode::setScale(const Vector3f & scale)
+	{
+		mScale = scale;
 
 		_needupdate();
 	}
@@ -78,6 +87,40 @@ namespace SCL
 	uint SceneNode::getChildCount()
 	{
 		return mChilds.size();
+	}
+
+	void SceneNode::attachObject(MovableObject * obj)
+	{
+		mMovableObjects.push_back(obj);
+	}
+
+	void SceneNode::detachObject(MovableObject * obj)
+	{
+		auto iter = mMovableObjects.begin();
+		auto iterend = mMovableObjects.end();
+
+		bool isFind = false;
+
+		while (iter != iterend)
+		{
+			if (*iter == obj)
+			{
+				std::swap(*iter, mMovableObjects.back());
+				isFind = true;
+				break;
+			}
+			iter++;
+		}
+
+		if (isFind)
+		{
+			mMovableObjects.pop_back();
+		}
+	}
+
+	void SceneNode::detachAllObjects(void)
+	{
+		mMovableObjects.clear();
 	}
 
 	void SceneNode::_needupdate()

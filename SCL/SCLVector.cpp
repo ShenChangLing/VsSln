@@ -26,6 +26,9 @@ namespace SCL
 	///////////////////////////////////////////
 
 	template <typename T>
+	const Vector3<T> Vector3<T>::ZERO = Vector3<T>(0, 0, 0);
+
+	template <typename T>
 	Vector3<T>::Vector3(T _x, T _y, T _z)
 	{
 		x = _x;
@@ -85,6 +88,41 @@ namespace SCL
 	{
 		Vector3<T> rv(x + v.x, y + v.y, z + v.z);
 		return rv;
+	}
+
+	template<typename T>
+	Vector3<T>& Vector3<T>::operator+=(const Vector3<T> v)
+	{
+		x += v.x;
+		y += v.y;
+		z += v.z;
+
+		return *this;
+	}
+
+	template <typename T>
+	Vector3<T> Vector3<T>::operator*(const Vector3<T>& v) const
+	{
+		return Vector3<T>(x * v.x, y * v.y, z * v.z);;
+	}
+
+	template <typename T>
+	Vector3<T>& Vector3<T>::operator*=(const Vector3<T>& v)
+	{
+		x *= v.x;
+		y *= v.y;
+		z *= v.z;
+		return *this;
+	}
+
+	template<typename T>
+	Vector3<T>& Vector3<T>::operator=(const Vector3<T> v)
+	{
+		x = v.x;
+		y = v.y;
+		z = v.z;
+
+		return *this;
 	}
 
 	///////////////////////////////////////////

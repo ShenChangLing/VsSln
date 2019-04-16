@@ -4,6 +4,9 @@
 
 namespace SCL
 {
+	const Quaternion Quaternion::IDENTITY = Quaternion(0, 0, 0, 1);
+	const Quaternion Quaternion::ZERO = Quaternion(0, 0, 0, 0);
+
 	Quaternion::Quaternion(float _x, float _y, float _z, float _w)
 		: w(_w), x(_x), y(_y), z(_z)
 	{
@@ -32,6 +35,18 @@ namespace SCL
 	Quaternion Quaternion::operator*(const float& s) const
 	{
 		return Quaternion(x * s, y * s, z * s, w * s);
+	}
+
+	//template<typename T>
+	Vector3<float> Quaternion::operator*(const Vector3<float>& vector3) const
+	{
+		glm::vec3 a = glm::make_vec3(vector3.getDataPtr());
+
+		glm::quat q = glm::make_quat(this->getDataPtr());
+
+		glm::vec3 b = q * a;
+
+		return Vector3<float>(b.x, b.y, b.z);
 	}
 
 	Quaternion& Quaternion::operator*=(const Quaternion& quat)

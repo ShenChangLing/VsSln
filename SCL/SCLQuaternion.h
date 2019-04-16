@@ -23,6 +23,7 @@ namespace SCL
 
 		Quaternion operator*(const Quaternion& quat) const;
 		Quaternion operator*(const float& s) const;
+		Vector3<float> operator*(const Vector3<float>& vector3) const;
 		Quaternion& operator*=(const Quaternion& quat);
 
 		float dot(const Quaternion& quat) const
@@ -44,7 +45,12 @@ namespace SCL
 			return len;
 		}
 
+		static const Quaternion IDENTITY;
+		static const Quaternion ZERO;
+
+		const float* getDataPtr() const { return &x; }
+
 	public:
-		float w, x, y, z;
+		float x, y, z, w;
 	};
 }

@@ -33,6 +33,14 @@ namespace SCL
 		Vector3<T> operator-(const Vector3<T>& v);
 		Vector3<T>& operator-=(const Vector3<T>& v);
 		Vector3<T> operator+(const Vector3<T>& v);
+		Vector3<T>& operator+=(const Vector3<T> v);
+
+		Vector3<T> operator*(const Vector3<T>& v) const;
+		Vector3<T>& operator*=(const Vector3<T>& v);
+
+		Vector3<T>& operator=(const Vector3<T> v);
+
+		static const Vector3<T> ZERO;
 		T x, y, z;
 	};
 

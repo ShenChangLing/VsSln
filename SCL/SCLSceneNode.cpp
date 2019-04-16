@@ -6,8 +6,11 @@ namespace SCL
 	SceneNode::SceneNode(Scene* scene)
 		: mScene(scene),
 		  mPosition(0, 0, 0),
-		  mOrientation(0, 0, 0, 1),
-		  mDerivedOrientation(0, 0, 0, 1),
+		  mScale(1, 1, 1),
+		  mOrientation(Quaternion::IDENTITY),
+		  mDerivedOrientation(Quaternion::IDENTITY),
+		  mDerivedPosition(Vector3f::ZERO),
+		  mDerivedScale(1, 1, 1),
 		  mParent(nullptr),
 		  mNeedParentUpdate(true),
 		  mNeedChildUpdate(true)
@@ -87,9 +90,37 @@ namespace SCL
 	{
 		if (mNeedParentUpdate)
 		{
-			//父节点需要更新
-			const Quaternion& parentDO = mParent->getDerivedOrientation(); //获取父节点的推导方向
-			mDerivedOrientation = parentDO * mOrientation;
+			if (mParent)
+			{
+				//父节点需要更新
+				const Quaternion& parentDO = mParent->getDerivedOrientation(); //获取父节点的推导方向
+				mDerivedOrientation = parentDO * mOrientation;
+
+				const Vector3f& parentDS = mParent->getDerivedScale();
+				mDerivedScale = parentDS * mScale;
+
+				mDerivedPosition = parentDO * (parentDS * mPosition);
+				mDerivedPosition += mParent->getDerivedPosition();
+			}
+			else
+			{
+				//当根节点处理
+				mDerivedPosition = mPosition;
+				mDerivedOrientation = mOrientation;
+				mDerivedScale = mScale;
+			}
+			mNeedParentUpdate = false;
+		}
+
+		//更新子节点
+		if (mNeedChildUpdate)
+		{
+			for (auto child : mChilds)
+			{
+				child->_update();
+			}
+
+			mNeedChildUpdate = false;
 		}
 	}
 }

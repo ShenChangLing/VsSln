@@ -24,6 +24,8 @@ namespace SCL
 		const Quaternion& getOrientation() const { return mOrientation; }
 
 		const Quaternion& getDerivedOrientation() const { return mDerivedOrientation; } //获取推到的方向
+		const Vector3f& getDerivedScale() const { return mDerivedScale; }
+		const Vector3f& getDerivedPosition() const { return mDerivedPosition; }
 
 		void addChild(SceneNode* scene_node);
 		void removeChild(SceneNode* scene_node);
@@ -38,11 +40,13 @@ namespace SCL
 		SCL_AUTO_MUTEX;
 		Scene* mScene;
 		Vector3f mPosition; //相对父节点的位置
-
+		Vector3f mScale; //缩放值
 		Quaternion mOrientation; //方向
 
 	protected:
 		Quaternion mDerivedOrientation; //推导出来的方向
+		Vector3f mDerivedPosition; //推导出来的位置
+		Vector3f mDerivedScale; //推导出来的缩放值
 
 		SceneNode* mParent; //父节点
 		SceneNodeList mChilds; //子节点

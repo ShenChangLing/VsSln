@@ -72,6 +72,9 @@ namespace SCL
 		mRenderer->setViewport(mCurrentViewport);
 
 		mRenderer->clear(Renderer::CBB_Color, mCurrentViewport->getBackgroundColorValue());
+
+		//更新所有的节点信息
+		getSceneNodeRoot()->_update();
 	}
 
 	void Scene::_destroyAllCameras()

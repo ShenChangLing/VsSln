@@ -97,7 +97,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\external\glog\lib\x86;..\external\curl\lib\x86;..\external\assimp\lib\x86;..\external\openal\libs\Win32;..\external\ffmpeg\bin\x86;..\external\freetype2\lib\x86;..\external\FreeImage\lib\x86;..\external\glfw\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\external\glog\lib\WIN32;..\external\curl\lib\WIN32;..\external\assimp\lib\WIN32;..\external\openal\libs\Win32;..\external\ffmpeg\bin\WIN32;..\external\freetype2\lib\WIN32;..\external\FreeImage\lib\WIN32;..\external\glfw\lib\WIN32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
@@ -135,7 +135,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\external\glog\lib\x86;..\external\curl\lib\x86;..\external\assimp\lib\x86;..\external\openal\libs\Win32;..\external\ffmpeg\bin\x86;..\external\freetype2\lib\x86;..\external\FreeImage\lib\x86;..\external\glfw\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\external\glog\lib\WIN32;..\external\curl\lib\WIN32;..\external\assimp\lib\WIN32;..\external\openal\libs\Win32;..\external\ffmpeg\bin\WIN32;..\external\freetype2\lib\WIN32;..\external\FreeImage\lib\WIN32;..\external\glfw\lib\WIN32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>

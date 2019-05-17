@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerEnvironment>PATH=..\external\curl\lib\WIN32;..\external\assimp\lib\WIN32%3b..\external\ffmpeg\bin\WIN32%3b..\external\vld\lib\WIN32%3b..\external\FreeImage\lib\WIN32%3b..\Res\%3b$(PATH) $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerEnvironment>PATH=..\external\curl\lib\WIN32;..\external\assimp\lib\WIN32%3b..\external\ffmpeg\bin\WIN32%3b..\external\vld\lib\WIN32%3b..\external\FreeImage\lib\WIN32%3b..\Res\%3b$(PATH) $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>

@@ -7,7 +7,6 @@ namespace SCL
 	{
 	}
 
-
 	MovableObject::~MovableObject()
 	{
 	}

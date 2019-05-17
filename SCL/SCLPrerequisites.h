@@ -5,7 +5,6 @@
 
 #pragma once
 
-
 #ifdef _WIN32
 
 #ifdef SCL_EXPORTS
@@ -23,7 +22,6 @@
 #define WIN32_LEAN_AND_MEAN             // 从 Windows 头文件中排除极少使用的内容
 // Windows 头文件
 #include <windows.h>
-
 
 // 在此处引用程序需要的其他标头
 #include <cstdio>
@@ -57,7 +55,6 @@
 #undef max
 #endif
 
-
 #define SCL_AUTO_LOCK_MUTEX_NAME mMutex
 #define SCL_AUTO_MUTEX std::recursive_mutex SCL_AUTO_LOCK_MUTEX_NAME
 #define SCL_AUTO_LOCK_MUTEX std::unique_lock<std::recursive_mutex> sclAutoLockMutex(SCL_AUTO_LOCK_MUTEX_NAME)
@@ -83,6 +80,7 @@ namespace SCL
 	class ResourceManager;
 	class Resource;
 	class Mesh;
+	class SubMesh;
 	class MeshManager;
 	class Entity;
 
@@ -107,6 +105,5 @@ namespace SCL
 
 	typedef std::list<SceneNode*> SceneNodeList;
 }
-
 
 struct GLFWwindow;

@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "SCLPrerequisites.h"
 
-
 namespace SCL
 {
 	class SCL_DLL Camera

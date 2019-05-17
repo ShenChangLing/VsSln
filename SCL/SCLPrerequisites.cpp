@@ -1,7 +1,6 @@
 ﻿#include "SCLPrerequisites.h"
 #include "SCLInteriorHeader.h"
 
-
 #include "glad.c"
 
 #pragma comment(lib,"glfw3.lib")

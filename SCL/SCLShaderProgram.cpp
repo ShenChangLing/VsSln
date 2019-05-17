@@ -31,7 +31,6 @@ namespace SCL
 	{
 	}
 
-
 	ShaderProgram::~ShaderProgram()
 	{
 		if (mProgram)

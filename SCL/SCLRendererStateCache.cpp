@@ -12,7 +12,6 @@ namespace SCL
 		mClearColorRGBA[0] = -10.0f; //防止BUG
 	}
 
-
 	RendererStateCache::~RendererStateCache()
 	{
 	}

@@ -7,12 +7,11 @@ namespace SCL
 {
 	Viewport::Viewport(Camera* camera, RenderTarget* rt, float left, float top, float width, float height)
 		: mCamera(camera),
-		  mRenderTarget(rt),
-		  mRelativeLeft(left), mRelativeTop(top), mRelativeWidth(width), mRelativeHeight(height)
+		mRenderTarget(rt),
+		mRelativeLeft(left), mRelativeTop(top), mRelativeWidth(width), mRelativeHeight(height)
 	{
 		_updateDimensions();
 	}
-
 
 	Viewport::~Viewport()
 	{

@@ -8,22 +8,21 @@ namespace SCL
 {
 	Camera::Camera(String name, Scene* scene)
 		: mName(name),
-		  mScene(scene),
-		  mFov(45),
-		  mFarDist(1000.0f),
-		  mNearDist(0.1f),
-		  mAspect(1.33333f),
-		  mPosition(0, 1, 0),
-		  mDirection(0, 0, -1),
-		  mUP(0, 1, 0),
-		  mCameraRightDirection(0, 0, 0),
-		  mCameraUpDirection(0, 0, 0),
-		  mIsUpdateCamera(true),
-		  mCameraViewMat(1),
-		  mCameraPerspective(1)
+		mScene(scene),
+		mFov(45),
+		mFarDist(1000.0f),
+		mNearDist(0.1f),
+		mAspect(1.33333f),
+		mPosition(0, 1, 0),
+		mDirection(0, 0, -1),
+		mUP(0, 1, 0),
+		mCameraRightDirection(0, 0, 0),
+		mCameraUpDirection(0, 0, 0),
+		mIsUpdateCamera(true),
+		mCameraViewMat(1),
+		mCameraPerspective(1)
 	{
 	}
-
 
 	Camera::~Camera()
 	{

@@ -2,16 +2,13 @@
 #pragma warning(push)
 #pragma warning(disable:4819)
 
-
 #include <glad/glad.h>
 #include <glfw3.h>
-
 
 #include <FreeImage.h>
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
-
 
 extern "C" {
 #include <libavformat/avformat.h>

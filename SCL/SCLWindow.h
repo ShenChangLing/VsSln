@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "SCLRenderTarget.h"
 
-
 namespace SCL
 {
 	class SCL_DLL Window : public RenderTarget

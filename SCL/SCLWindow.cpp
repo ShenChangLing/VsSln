@@ -42,7 +42,6 @@ namespace SCL
 		glfwSwapInterval(1); //垂直同步
 	}
 
-
 	Window::~Window()
 	{
 		glfwDestroyWindow(mGLFWWindow);

@@ -11,7 +11,6 @@ namespace SCL
 	{
 	}
 
-
 	template <int row, typename T>
 	Matrix<row, T>::~Matrix()
 	{
@@ -24,7 +23,7 @@ namespace SCL
 			col_type(0, s, 0, 0),
 			col_type(0, 0, s, 0),
 			col_type(0, 0, 0, s)
-		}
+	}
 	{
 	}
 

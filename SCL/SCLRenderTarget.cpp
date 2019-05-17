@@ -16,7 +16,6 @@ namespace SCL
 		mPrioritised = 0;
 	}
 
-
 	RenderTarget::~RenderTarget()
 	{
 		for (auto i : *mViewports)

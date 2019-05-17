@@ -8,7 +8,6 @@ namespace SCL
 	{
 	}
 
-
 	ResourceManager::~ResourceManager()
 	{
 	}

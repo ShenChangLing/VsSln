@@ -10,7 +10,6 @@ namespace SCL
 	{
 	}
 
-
 	MeshManager::~MeshManager()
 	{
 	}

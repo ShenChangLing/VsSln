@@ -19,7 +19,6 @@ namespace SCL
 		mCurrentViewport = nullptr;
 	}
 
-
 	Renderer::~Renderer()
 	{
 		mPrioritisedRenderTargets.clear();

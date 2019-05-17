@@ -18,8 +18,8 @@ namespace SCL
 
 		Vertex_Position3f_Color4f_TextureCoord()
 			: position(0, 0, 0),
-			  color(0, 0, 0, 0),
-			  textureCoord(0, 0)
+			color(0, 0, 0, 0),
+			textureCoord(0, 0)
 		{
 			//
 		}
@@ -30,7 +30,7 @@ namespace SCL
 		Vector3f position;
 		Vector2f textureCoord;
 
-		Vertex_Position3f_TextureCoord():
+		Vertex_Position3f_TextureCoord() :
 			position(0, 0, 0),
 			textureCoord(0, 0)
 		{

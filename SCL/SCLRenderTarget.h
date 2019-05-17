@@ -16,7 +16,7 @@ namespace SCL
 		virtual void swapBuffers() = 0;
 
 		virtual Viewport* addViewport(Camera* camera, int z = 0, float left = 0.0f, float top = 0.0f,
-		                              float width = 1.0f, float height = 1.0f);
+			float width = 1.0f, float height = 1.0f);
 
 		const uchar getPrioritised() const { return mPrioritised; }
 

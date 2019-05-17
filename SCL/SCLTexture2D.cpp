@@ -17,10 +17,9 @@ namespace SCL
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image->getWidth(), image->getWidth(), 0, GL_BGR, GL_UNSIGNED_BYTE,
-		             image->getData());
+			image->getData());
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
-
 
 	Texture2D::~Texture2D()
 	{

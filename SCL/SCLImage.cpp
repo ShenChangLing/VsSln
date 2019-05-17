@@ -13,7 +13,6 @@ namespace SCL
 		mWidth = mHeight = 0;
 	}
 
-
 	Image::~Image()
 	{
 		if (mData)

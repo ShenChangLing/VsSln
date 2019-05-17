@@ -8,7 +8,7 @@ namespace SCL
 	{
 	public:
 		Viewport(Camera* camera, RenderTarget* rt, float left = 0.0f, float top = 0.0f, float width = 1.0f,
-		         float height = 1.0f);
+			float height = 1.0f);
 		~Viewport();
 
 		void update();

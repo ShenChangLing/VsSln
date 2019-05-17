@@ -9,5 +9,14 @@ namespace SCL
 	public:
 		Mesh(const String& name, const String& group);
 		~Mesh();
+
+		SubMesh* createSubMesh();
+		void destroySubMesh(SubMesh* sub_mesh);
+		void destroyAllSubMesh();
+
+	protected:
+		typedef std::vector<SubMesh*> SubMeshList;
+	private:
+		SubMeshList mSubMeshs;
 	};
 }

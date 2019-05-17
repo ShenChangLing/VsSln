@@ -180,6 +180,7 @@
     <ClInclude Include="SCLSceneNode.h" />
     <ClInclude Include="SCLShaderProgram.h" />
     <ClInclude Include="SCLSingleton.h" />
+    <ClInclude Include="SCLSubMesh.h" />
     <ClInclude Include="SCLTexture2D.h" />
     <ClInclude Include="SCLVector.h" />
     <ClInclude Include="SCLVertex.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="SCLScene.cpp" />
     <ClCompile Include="SCLSceneNode.cpp" />
     <ClCompile Include="SCLShaderProgram.cpp" />
+    <ClCompile Include="SCLSubMesh.cpp" />
     <ClCompile Include="SCLTexture2D.cpp" />
     <ClCompile Include="SCLVector.cpp" />
     <ClCompile Include="SCLViewport.cpp" />

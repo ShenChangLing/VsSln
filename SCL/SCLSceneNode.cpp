@@ -5,22 +5,21 @@ namespace SCL
 {
 	SceneNode::SceneNode(Scene* scene)
 		: mScene(scene),
-		  mPosition(0, 0, 0),
-		  mScale(1, 1, 1),
-		  mOrientation(Quaternion::IDENTITY),
-		  mDerivedOrientation(Quaternion::IDENTITY),
-		  mDerivedPosition(Vector3f::ZERO),
-		  mDerivedScale(1, 1, 1),
-		  mParent(nullptr),
-		  mNeedParentUpdate(true),
-		  mNeedChildUpdate(true)
+		mPosition(0, 0, 0),
+		mScale(1, 1, 1),
+		mOrientation(Quaternion::IDENTITY),
+		mDerivedOrientation(Quaternion::IDENTITY),
+		mDerivedPosition(Vector3f::ZERO),
+		mDerivedScale(1, 1, 1),
+		mParent(nullptr),
+		mNeedParentUpdate(true),
+		mNeedChildUpdate(true)
 	{
 		mChilds.clear();
 
 		mMovableObjects.clear();
 		_needupdate();
 	}
-
 
 	SceneNode::~SceneNode()
 	{

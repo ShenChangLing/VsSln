@@ -104,6 +104,8 @@ namespace SCL
 	typedef std::shared_ptr<Resource> ResourcePtr;
 
 	typedef std::list<SceneNode*> SceneNodeList;
+
+	class NetworkManager;
 }
 
 struct GLFWwindow;

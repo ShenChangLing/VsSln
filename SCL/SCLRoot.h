@@ -34,5 +34,7 @@ namespace SCL
 		Renderer* mRenderer; //渲染器
 
 		SceneList* mScenes;
+
+		NetworkManager* mNetworkManager;//网络管理器
 	};
 }

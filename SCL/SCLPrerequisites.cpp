@@ -13,3 +13,11 @@
 #pragma comment(lib,"OpenAL32.lib")
 
 #pragma comment(lib,"assimp-vc140-mt.lib")
+
+#pragma comment(lib,"libcurl_imp.lib")
+
+#ifdef _DEBUG
+#pragma comment(lib,"glogd.lib")
+#else
+#pragma comment(lib,"glog.lib")
+#endif

@@ -6,8 +6,14 @@
 #include "SCLTexture2D.h"
 #include "SCLRenderer.h"
 #include "SCLScene.h"
+#include "SCLNetworkManager.h"
 
 #include "SCLInteriorHeader.h"
+
+#ifdef WIN32
+#include <direct.h>
+#include <shellapi.h>
+#endif
 
 template <>
 SCL::Root* SCL::Singleton<SCL::Root>::mSingleton = nullptr;
@@ -122,8 +128,32 @@ namespace SCL
 		FT_Done_FreeType(ft_lib);
 	}
 
+	void _init_of_glog()
+	{
+		//日志库初始化
+		google::InitGoogleLogging("");
+		google::SetLogFilenameExtension(".txt");
+		FLAGS_log_dir = "./AppRunLog";
+#ifdef WIN32
+		//删除文件夹，如果存在
+		SHFILEOPSTRUCT shfileopstruct = {};
+		shfileopstruct.wFunc = FO_DELETE;
+		shfileopstruct.fFlags = FOF_NO_UI;
+		shfileopstruct.pFrom = FLAGS_log_dir.c_str();
+		shfileopstruct.pTo = nullptr;
+		SHFileOperation(&shfileopstruct);
+		//创建文件夹
+		_mkdir(FLAGS_log_dir.c_str());
+#endif
+		FLAGS_logtostderr = false;
+		FLAGS_alsologtostderr = false;
+		FLAGS_log_prefix = true;
+	}
+
 	Root::Root()
 	{
+		_init_of_glog();
+
 #ifdef FREEIMAGE_LIB
 		FreeImage_Initialise(true);
 #endif
@@ -133,6 +163,8 @@ namespace SCL
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		glfwSetErrorCallback(_glfw_error_callback);
+
+		mNetworkManager = new NetworkManager();
 
 		mWindows = new WindowList();
 		mRenderer = new Renderer();
@@ -145,6 +177,9 @@ namespace SCL
 
 	Root::~Root()
 	{
+		delete mNetworkManager;
+		mNetworkManager = nullptr;
+
 		destroyWindows();
 		delete mScenes;
 		mScenes = nullptr;
@@ -157,6 +192,9 @@ namespace SCL
 #ifdef FREEIMAGE_LIB
 		FreeImage_DeInitialise();
 #endif
+
+		//关闭日志库
+		google::ShutdownGoogleLogging();
 	}
 
 	Window* Root::createWindow(const char* name, int x, int y, int width, int height, bool fullscreen)

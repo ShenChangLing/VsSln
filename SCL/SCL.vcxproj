@@ -90,14 +90,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;SCL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\external\assimp\include;..\external\openal\include;..\external\ffmpeg\include;..\external\freetype2\include;..\external\stb;..\external\glm;..\external\FreeImage\include;..\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\external\glog\include;..\external\curl\include;..\external\assimp\include;..\external\openal\include;..\external\ffmpeg\include;..\external\freetype2\include;..\external\stb;..\external\glm;..\external\FreeImage\include;..\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>SCLPrerequisites.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\external\assimp\lib\x86;..\external\openal\libs\Win32;..\external\ffmpeg\bin\x86;..\external\freetype2\lib\x86;..\external\FreeImage\lib\x86;..\external\glfw\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\external\glog\lib\x86;..\external\curl\lib\x86;..\external\assimp\lib\x86;..\external\openal\libs\Win32;..\external\ffmpeg\bin\x86;..\external\freetype2\lib\x86;..\external\FreeImage\lib\x86;..\external\glfw\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
@@ -125,7 +125,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;SCL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\external\assimp\include;..\external\openal\include;..\external\ffmpeg\include;..\external\freetype2\include;..\external\stb;..\external\glm;..\external\FreeImage\include;..\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\external\glog\include;..\external\curl\include;..\external\assimp\include;..\external\openal\include;..\external\ffmpeg\include;..\external\freetype2\include;..\external\stb;..\external\glm;..\external\FreeImage\include;..\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>SCLPrerequisites.h</PrecompiledHeaderFile>
       <ExceptionHandling>Sync</ExceptionHandling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -135,7 +135,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\external\assimp\lib\x86;..\external\openal\libs\Win32;..\external\ffmpeg\bin\x86;..\external\freetype2\lib\x86;..\external\FreeImage\lib\x86;..\external\glfw\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\external\glog\lib\x86;..\external\curl\lib\x86;..\external\assimp\lib\x86;..\external\openal\libs\Win32;..\external\ffmpeg\bin\x86;..\external\freetype2\lib\x86;..\external\FreeImage\lib\x86;..\external\glfw\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -168,6 +168,7 @@
     <ClInclude Include="SCLMatrix.h" />
     <ClInclude Include="SCLMeshManager.h" />
     <ClInclude Include="SCLMovableObject.h" />
+    <ClInclude Include="SCLNetworkManager.h" />
     <ClInclude Include="SCLPrerequisites.h" />
     <ClInclude Include="SCLQuaternion.h" />
     <ClInclude Include="SCLRenderer.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="SCLMatrix.cpp" />
     <ClCompile Include="SCLMeshManager.cpp" />
     <ClCompile Include="SCLMovableObject.cpp" />
+    <ClCompile Include="SCLNetworkManager.cpp" />
     <ClCompile Include="SCLPrerequisites.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

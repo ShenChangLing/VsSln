@@ -2,14 +2,18 @@
 #pragma warning(push)
 #pragma warning(disable:4819)
 
+//OPENGL库文件
 #include <glad/glad.h>
 #include <glfw3.h>
 
+//图片库头文件
 #include <FreeImage.h>
 
+//字体库头文件
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+//多媒体编码解码库头文件
 extern "C" {
 #include <libavformat/avformat.h>
 #include <libavcodec/avcodec.h>
@@ -20,11 +24,21 @@ extern "C" {
 #include <libswscale/swscale.h>
 }
 
+//声音库头文件
 #include <al.h>
 #include <alc.h>
 
+//数学库
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+//网络库头文件
+#include <curl/curl.h>
+
+//日志库头文件
+#define GOOGLE_GLOG_DLL_DECL
+#define GLOG_NO_ABBREVIATED_SEVERITIES
+#include <glog/logging.h>
 
 #pragma warning(pop)

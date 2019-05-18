@@ -132,7 +132,6 @@ namespace SCL
 	{
 		//日志库初始化
 		google::InitGoogleLogging("");
-		google::SetLogFilenameExtension(".txt");
 		FLAGS_log_dir = "./AppRunLog";
 #ifdef WIN32
 		//删除文件夹，如果存在

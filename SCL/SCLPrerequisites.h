@@ -46,6 +46,7 @@
 //多线程部分
 #include <thread>
 #include <mutex>
+#include <condition_variable>
 
 #ifdef min
 #undef min

@@ -14,7 +14,7 @@
 
 #pragma comment(lib,"assimp-vc140-mt.lib")
 
-#pragma comment(lib,"libcurl_imp.lib")
+#pragma comment(lib,"libcurl.lib")
 
 #ifdef _DEBUG
 #pragma comment(lib,"glogd.lib")

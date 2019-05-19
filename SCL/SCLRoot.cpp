@@ -165,24 +165,6 @@ namespace SCL
 		glfwSetErrorCallback(_glfw_error_callback);
 
 		mNetworkManager = new NetworkManager();
-		std::thread tempThread([&]()
-		{
-			const char* tempurl[] = { "http://www.qq.com","http://www.baidu.com" , "http://www.oschina.net/","http://www.ithome.com/" };
-			int tempcount = 4;
-			while (true)
-			{
-				HttpRequest *http_request = new HttpRequest();
-				http_request->setType(HttpRequest::GET);
-				http_request->setURL(tempurl[tempcount - 1]);
-				mNetworkManager->get(http_request);
-				tempcount--;
-				if (tempcount == 0)
-				{
-					return;
-				}
-			}
-		});
-		tempThread.detach();
 
 		mWindows = new WindowList();
 		mRenderer = new Renderer();

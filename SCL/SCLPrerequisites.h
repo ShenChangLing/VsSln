@@ -31,6 +31,8 @@
 #include <string>
 #include <vector>
 #include <list>
+#include <deque>
+#include <queue>
 #include <unordered_map>
 #include <map>
 #include <memory>
@@ -107,6 +109,7 @@ namespace SCL
 	typedef std::list<SceneNode*> SceneNodeList;
 
 	class NetworkManager;
+	class HttpRequest;
 }
 
 struct GLFWwindow;

@@ -37,8 +37,22 @@ extern "C" {
 #include <curl/curl.h>
 
 //日志库头文件
+#ifndef GOOGLE_GLOG_DLL_DECL
 #define GOOGLE_GLOG_DLL_DECL
+#endif
+
+#ifndef GLOG_NO_ABBREVIATED_SEVERITIES
 #define GLOG_NO_ABBREVIATED_SEVERITIES
+#endif
+
 #include <glog/logging.h>
+
+#ifndef SCL_LOGINFO
+#define SCL_LOGINFO LOG(INFO)
+#endif
+
+#ifndef SCL_DLOGINFO
+#define SCL_DLOGINFO DLOG(INFO)
+#endif
 
 #pragma warning(pop)

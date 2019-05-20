@@ -162,6 +162,7 @@
     <ClInclude Include="SCLCamera.h" />
     <ClInclude Include="SCLColorValue.h" />
     <ClInclude Include="SCLEntity.h" />
+    <ClInclude Include="SCLHttpRequest.h" />
     <ClInclude Include="SCLImage.h" />
     <ClInclude Include="SCLInteriorHeader.h" />
     <ClInclude Include="SCLMesh.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="SCLCamera.cpp" />
     <ClCompile Include="SCLColorValue.cpp" />
     <ClCompile Include="SCLEntity.cpp" />
+    <ClCompile Include="SCLHttpRequest.cpp" />
     <ClCompile Include="SCLImage.cpp" />
     <ClCompile Include="SCLMesh.cpp" />
     <ClCompile Include="SCLMatrix.cpp" />

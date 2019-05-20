@@ -31,6 +31,8 @@
 #include <string>
 #include <vector>
 #include <list>
+#include <deque>
+#include <queue>
 #include <unordered_map>
 #include <map>
 #include <memory>
@@ -46,6 +48,7 @@
 //多线程部分
 #include <thread>
 #include <mutex>
+#include <condition_variable>
 
 #ifdef min
 #undef min
@@ -106,6 +109,7 @@ namespace SCL
 	typedef std::list<SceneNode*> SceneNodeList;
 
 	class NetworkManager;
+	class HttpRequest;
 }
 
 struct GLFWwindow;

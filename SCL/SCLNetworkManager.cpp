@@ -152,8 +152,25 @@ namespace SCL
 	{
 		CURL *curl = curl_easy_init();
 		curl_easy_setopt(curl, CURLOPT_URL, http_request->getURL());
+
+		if (http_request->getType() == HttpRequest::POST)
+		{
+			curl_easy_setopt(curl, CURLOPT_POST, 1L);//启用POST
+		}
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, temp);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, http_request);
+
+		if (http_request->getSSLCAFilename().empty())
+		{
+			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);//不启用CA证书
+			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
+		}
+		else
+		{
+			curl_easy_setopt(curl, CURLOPT_CAPATH, http_request->getSSLCAFilename());
+			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);//启用CA证书
+		}
+
 		curl_multi_add_handle(mNetworkManagerData->curlm, curl);
 	}
 }

@@ -110,6 +110,10 @@ namespace SCL
 					{
 						SCL_DLOGINFO << curl_msg->data.result << curl_easy_strerror(curl_msg->data.result);
 					}
+					else
+					{//成功处理就通知监听对象，我处理请求完成了
+						
+					}
 					curl_multi_remove_handle(mNetworkManagerData->curlm, e_handle);
 					curl_easy_cleanup(e_handle);
 				}
@@ -135,7 +139,7 @@ namespace SCL
 		SCL_DLOGINFO << "结束网络连接线程";
 	}
 
-	void NetworkManager::get(HttpRequest * http_request)
+	void NetworkManager::perform(HttpRequest * http_request)
 	{
 		SCL_AUTO_LOCK_MUTEX;
 

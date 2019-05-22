@@ -143,8 +143,9 @@ namespace SCL
 		//唤醒线程
 		Thread::condition_variable.notify_one();
 	}
-	static size_t temp(char *data, size_t n, size_t l, void *userp)
+	static size_t temp(char* data, size_t n, size_t l, void *userp)
 	{
+		HttpRequest *request = static_cast<HttpRequest*>(userp);
 		SCL_DLOGINFO << data;
 		return n * l;
 	}
@@ -162,7 +163,7 @@ namespace SCL
 
 		if (http_request->getSSLCAFilename().empty())
 		{
-			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);//不启用CA证书
+			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);//不启用CA证书
 			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
 		}
 		else

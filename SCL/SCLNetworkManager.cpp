@@ -112,7 +112,6 @@ namespace SCL
 					}
 					else
 					{//成功处理就通知监听对象，我处理请求完成了
-						
 					}
 					curl_multi_remove_handle(mNetworkManagerData->curlm, e_handle);
 					curl_easy_cleanup(e_handle);
@@ -147,16 +146,46 @@ namespace SCL
 		//唤醒线程
 		Thread::condition_variable.notify_one();
 	}
+
 	static size_t temp(char* data, size_t n, size_t l, void *userp)
 	{
 		HttpRequest *request = static_cast<HttpRequest*>(userp);
 		SCL_DLOGINFO << data;
 		return n * l;
 	}
+
+	static int curldebugfun(CURL *handle, curl_infotype type, char *data, size_t size, void *userp)
+	{
+		//curl的调试回调函数
+		String infoStr;
+		switch (type)
+		{
+		case CURLINFO_TEXT:
+			infoStr = "CURL DEBUG INFO TEXT= ";
+			break;
+		case CURLINFO_HEADER_IN:
+			infoStr = "CURL DEBUG HEADER IN=";
+			break;
+		case CURLINFO_HEADER_OUT:
+			infoStr = "CURL DEBUG HEADER OUT=";
+			break;
+		default:
+			break;
+		}
+
+		SCL_LOGINFO << infoStr << data;
+	}
+
 	void NetworkManager::_addToThread(HttpRequest* http_request)
 	{
 		CURL *curl = curl_easy_init();
 		curl_easy_setopt(curl, CURLOPT_URL, http_request->getURL());
+
+#ifdef _DEBUG
+		//开启调试回调函数
+		curl_easy_setopt(curl, CURLOPT_DEBUGFUNCTION, curldebugfun);
+		curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);//开启调试信息
+#endif
 
 		if (http_request->getType() == HttpRequest::POST)
 		{

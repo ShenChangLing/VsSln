@@ -122,11 +122,40 @@ namespace SCL
 				}
 			}
 
+			fd_set read_fd_set;
+			fd_set write_fd_set;
+			fd_set exc_fd_set;
+			int max_fd = -1;
+			FD_ZERO(&read_fd_set);
+			FD_ZERO(&write_fd_set);
+			FD_ZERO(&exc_fd_set);
+
+			timeval timeout;
+			timeout.tv_sec = 1;
+			timeout.tv_usec = 0;
+
+			long timeoutvalue = -1;
+			curl_multi_timeout(mNetworkManagerData->curlm, &timeoutvalue);
+			if (timeoutvalue > 0)
+			{
+				timeout.tv_sec = timeoutvalue / 1000;
+				if (timeout.tv_sec > 1)
+					timeout.tv_sec = 1;
+				else
+					timeout.tv_usec = (timeoutvalue % 1000) * 1000;
+			}
+
+			if (curl_multi_fdset(mNetworkManagerData->curlm, &read_fd_set, &write_fd_set, &exc_fd_set, &max_fd))
+			{
+				if (max_fd == -1)
+					std::this_thread::sleep_for(std::chrono::milliseconds(100));
+				else
+					select(max_fd + 1, &read_fd_set, &write_fd_set, &exc_fd_set, &timeout);
+			}
+
 			//等待一会继续处理当前程序
 			if (running_handles)
-			{
 				curl_multi_wait(mNetworkManagerData->curlm, nullptr, 0, 1000, nullptr);
-			}
 			else if (mHttpRequests.empty())
 			{
 				//休闲当前线程
@@ -205,6 +234,7 @@ namespace SCL
 			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);//启用CA证书
 		}
 
+		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);//启用重定向
 		curl_multi_add_handle(mNetworkManagerData->curlm, curl);
 	}
 }

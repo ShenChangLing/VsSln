@@ -105,6 +105,9 @@
     <ClInclude Include="SCLHttpRequest.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SCLHttpResponse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SCLPrerequisites.cpp">
@@ -183,6 +186,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SCLHttpRequest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SCLHttpResponse.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

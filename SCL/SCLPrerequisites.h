@@ -110,6 +110,7 @@ namespace SCL
 
 	class NetworkManager;
 	class HttpRequest;
+	class HttpResponse;
 }
 
 struct GLFWwindow;

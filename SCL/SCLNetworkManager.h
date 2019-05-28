@@ -13,8 +13,8 @@ namespace SCL
 
 		void networkThread();//网络的请求执行部分在线程中
 
-		//添加HTTP GET请求
-		void get(HttpRequest* http_request);
+		//处理HTTP请求
+		void perform(HttpRequest* http_request);
 
 	private:
 		void _addToThread(HttpRequest* http_request);//增加到线程中

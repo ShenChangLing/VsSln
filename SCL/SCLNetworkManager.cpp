@@ -1,6 +1,7 @@
 ﻿#include "SCLPrerequisites.h"
 #include "SCLNetworkManager.h"
 #include "SCLHttpRequest.h"
+#include "SCLHttpResponse.h"
 #include "SCLInteriorHeader.h"
 
 template<> SCL::NetworkManager * SCL::Singleton<SCL::NetworkManager>::mSingleton = nullptr;
@@ -112,6 +113,10 @@ namespace SCL
 					}
 					else
 					{//成功处理就通知监听对象，我处理请求完成了
+						HttpRequest* http_request = nullptr;
+						curl_easy_getinfo(e_handle, CURLINFO_PRIVATE, &http_request);
+						if (http_request)
+							http_request->_notificationRequestFinal();
 					}
 					curl_multi_remove_handle(mNetworkManagerData->curlm, e_handle);
 					curl_easy_cleanup(e_handle);
@@ -176,10 +181,11 @@ namespace SCL
 		Thread::condition_variable.notify_one();
 	}
 
-	static size_t temp(char* data, size_t n, size_t l, void *userp)
+	static size_t curl_writefun_callback(char* data, size_t n, size_t l, void *userp)
 	{
 		HttpRequest *request = static_cast<HttpRequest*>(userp);
 		SCL_DLOGINFO << data;
+		request->getHttpResponse()->_addResponseData(data, n);
 		return n * l;
 	}
 
@@ -203,6 +209,7 @@ namespace SCL
 		}
 
 		SCL_LOGINFO << infoStr << data;
+		return 0;
 	}
 
 	void NetworkManager::_addToThread(HttpRequest* http_request)
@@ -220,8 +227,10 @@ namespace SCL
 		{
 			curl_easy_setopt(curl, CURLOPT_POST, 1L);//启用POST
 		}
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, temp);
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curl_writefun_callback);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, http_request);
+
+		curl_easy_setopt(curl, CURLOPT_PRIVATE, http_request);
 
 		if (http_request->getSSLCAFilename().empty())
 		{
@@ -235,6 +244,14 @@ namespace SCL
 		}
 
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);//启用重定向
+
+		//添加请求头到CURL
+		curl_slist *headers = nullptr;
+		for (const auto& get_request_header : http_request->getRequestHeaders())
+		{
+			String header = get_request_header.first + get_request_header.second;
+			headers = curl_slist_append(headers, header.c_str());
+		}
 		curl_multi_add_handle(mNetworkManagerData->curlm, curl);
 	}
 }

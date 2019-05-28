@@ -21,3 +21,7 @@
 #else
 #pragma comment(lib,"glog.lib")
 #endif
+
+#ifdef WIN32
+#pragma comment(lib,"WS2_32.LIB")
+#endif
